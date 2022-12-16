@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import hotelRoute from './routes/hotels.js'
 import authRoute from './routes/auth.js'
 import pubRoute from './routes/publication.js'
+import prodRoute from './routes/products.js'
 import noticeRoute from './routes/notice.js'
 import cors from 'cors'
 
@@ -33,6 +34,7 @@ app.use('/api/hotels', hotelRoute)
 app.use('/api/auth', authRoute)
 app.use('/api/publications', pubRoute)
 app.use('/api/notice', noticeRoute)
+app.use('/api/products', prodRoute)
 
 //Error handling middleware
 app.use((err, req, res, next) => {
