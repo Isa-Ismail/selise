@@ -1,11 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import hotelRoute from './routes/hotels.js'
-import authRoute from './routes/auth.js'
-import pubRoute from './routes/publication.js'
 import prodRoute from './routes/products.js'
-import noticeRoute from './routes/notice.js'
 import cors from 'cors'
 
 //configuring app
@@ -30,10 +26,7 @@ app.use(cors({
 }))
 
 //All routes
-app.use('/api/hotels', hotelRoute)
-app.use('/api/auth', authRoute)
-app.use('/api/publications', pubRoute)
-app.use('/api/notice', noticeRoute)
+
 app.use('/api/products', prodRoute)
 
 //Error handling middleware
