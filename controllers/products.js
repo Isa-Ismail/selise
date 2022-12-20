@@ -2,8 +2,19 @@ import Products from '../models/Products.js'
 
 export const getAllProd = async ( req, res, next ) => {
     try {
-        const prods = await Products.find().limit(req.query.perPage).skip(req.query.page*req.query.perPage)
-        res.json(prods)
+        if (req.query.sort === 'date') {
+            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'updatedAt': -1})
+            res.json(prods)
+        } else if (req.query.sort === 'name') {
+            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'name': -1})
+            res.json(prods)
+        } else if (req.query.sort === 'price') {
+            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'price': -1})
+            res.json(prods)
+        } else {
+            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page * req.query.perPage))
+            res.json(prods)
+        }
     } catch (err) {
         next(err)
     }

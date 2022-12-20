@@ -4,10 +4,12 @@ const Products = new mongoose.Schema({
     productName: {
         type: String,
         required: true,
+        unique: true
     },
     productShortCode: {
         type: String,
         required: true,
+        unique: true
     },
     category: {
         type: String,
