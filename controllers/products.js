@@ -39,7 +39,7 @@ export const postProd = async ( req, res, next ) => {
     }
 }
 
-export const updateHotel = async(req, res, next) => {
+export const updateProd = async(req, res, next) => {
     try {
         const prod = await Products.findByIdAndUpdate(req.params.id, { $set: req.body } )
         const updatedProd = await prod.save()
@@ -49,10 +49,10 @@ export const updateHotel = async(req, res, next) => {
     }
 }
 
-export const deleteHotel = async(req, res, next) => {
+export const deleteProd = async(req, res, next) => {
     try {
         await Products.findByIdAndDelete( req.params.id )
-        res.json({message: 'hotel data deleted'})
+        res.json({message: 'product data deleted'})
       } catch (err) {
         next(err)
     }
