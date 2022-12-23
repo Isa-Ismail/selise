@@ -9,7 +9,7 @@ export const getAllProd = async ( req, res, next ) => {
             const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'name': -1})
             res.json(prods)
         } else if (req.query.sort === 'price') {
-            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'price': -1})
+            const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page*req.query.perPage)).sort({'price': 1})
             res.json(prods)
         } else {
             const prods = await Products.find().limit(parseInt(req.query.perPage)).skip(parseInt(req.query.page * req.query.perPage))
