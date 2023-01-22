@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import prodRoute from './routes/products.js'
+import authRoute from './routes/auth.js'
 import cors from 'cors'
 
 //configuring app
@@ -28,6 +29,7 @@ app.use(cors({
 //All routes
 
 app.use('/api/products', prodRoute)
+app.use('/api/auth', authRoute)
 
 //Error handling middleware
 app.use((err, req, res, next) => {
