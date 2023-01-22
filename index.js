@@ -44,7 +44,7 @@ app.use((err, req, res, next) => {
   })
 })
 
-//Server Engine starter
+//Server starter
 app.listen(8000, ()=> {
   console.log('back connected')
 })
