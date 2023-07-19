@@ -11,7 +11,7 @@ dotenv.config()
 
 //DB pipeline
 try {
-  mongoose.connect(process.env.MONGO).then(()=>{
+  mongoose.connect(process.env.MONGO).then(() => {
     console.log('mongo connected')
   })
 } catch (error) {
@@ -23,7 +23,7 @@ app.use(express.json())
 
 //CORS
 app.use(cors({
-  origin: '*'
+  origin: ['http://games-mania.vercel.app', 'http://subdomain.example.com', 'http://localhost:3000']
 }))
 
 //All routes
@@ -45,6 +45,6 @@ app.use((err, req, res, next) => {
 })
 
 //Server starter
-app.listen(8000, ()=> {
+app.listen(8000, () => {
   console.log('back connected')
 })
