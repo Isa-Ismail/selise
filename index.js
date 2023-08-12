@@ -22,9 +22,7 @@ try {
 app.use(express.json())
 
 //CORS
-app.use(cors({
-  origin: ['http://games-mania.vercel.app', 'http://subdomain.example.com', 'http://localhost:3000']
-}))
+app.use(cors({}))
 
 //All routes
 
